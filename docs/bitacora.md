@@ -18,3 +18,17 @@ Matrícula: A01787550
 - **¿Suficiente?** No. TalkBack dice «Imagen del aviso» en todas; no se sabe qué muestra cada una.
 - **Mejor:** incluir el título: «Imagen del aviso Feria de proyectos».
 - **Cómo probarlo:** dibujar `TarjetaAviso` con un aviso de título conocido y buscar `onNodeWithContentDescription("Imagen del aviso Feria de proyectos")`.
+
+## Bloque D — Tabla de mutantes
+
+Rama `experimento-mutantes`, mutantes acumulados, corriendo locales + instrumentadas después de cada uno.
+
+| Mutante | Cambio | Prueba nueva en rojo |
+|---|---|---|
+| 1 | `..` → `until` en `tituloValido` | `un_titulo_de_3_y_uno_de_60_caracteres_son_validos` |
+| 2 | `<` → `<=` en `tiempoRelativo` | `a_los_59_minutos_todavia_son_minutos_y_a_los_60_ya_es_una_hora` |
+| 3 | Sin `if (!uiState.puedePublicar) return` | `tocar_publicar_dos_veces_manda_un_solo_aviso` |
+| 4 | `contentDescription = null` en `TarjetaAviso` | `la_imagen_elegida_se_anuncia_y_se_puede_quitar` |
+| 5 | `LADO_MAX` 1280 → 12800 | Ninguna: **sobrevive** (nadie mide el tamaño de la imagen) |
+
+Mutante 5 lo atrapa ahora `una_foto_grande_sale_con_1280_px_en_su_lado_mas_largo` (D4): `expected:<1280> but was:<3000>`.

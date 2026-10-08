@@ -74,7 +74,7 @@ fun TarjetaAviso(
             // Mientras baja, y si falla, el mismo rectángulo de color. El 401 o el 404 se ven en el Logcat.
             AsyncImage(
                 model = imagen,
-                contentDescription = "Imagen del aviso",
+                contentDescription = null,
                 contentScale = ContentScale.Crop,
                 placeholder = ColorPainter(MaterialTheme.colorScheme.surfaceContainerHighest),
                 error = ColorPainter(MaterialTheme.colorScheme.surfaceContainerHighest),

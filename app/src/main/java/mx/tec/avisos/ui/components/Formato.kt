@@ -32,7 +32,7 @@ fun tiempoRelativo(creadoEn: String, ahora: Long = System.currentTimeMillis()): 
     val minutos = (ahora - instante) / 60_000
     return when {
         minutos < 1 -> "ahora"
-        minutos < 60 -> "hace $minutos min"
+        minutos <= 60 -> "hace $minutos min"
         minutos < 24 * 60 -> "hace ${minutos / 60} h"
         esAyer(instante, ahora) -> "ayer"
         else -> SimpleDateFormat("d MMM", Locale.forLanguageTag("es-MX")).format(instante).trimEnd('.')

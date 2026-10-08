@@ -87,7 +87,6 @@ class PublicarViewModel @Inject constructor(
 
     /** `alTerminar` se llama solo si el servidor aceptó el aviso. Un error se queda a la vista. */
     fun publicar(alTerminar: () -> Unit) {
-        if (!uiState.puedePublicar) return
         viewModelScope.launch {
             val imagen = uiState.imagen
             try {
