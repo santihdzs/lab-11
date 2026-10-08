@@ -12,3 +12,9 @@ Matrícula: A01787550
 | Un solo aviso con doble toque | Instrumentada | Mismo ViewModel |
 | Decir la verdad si el servidor rechaza | Instrumentada | Mismo ViewModel |
 | TalkBack anuncia la imagen | Instrumentada | Hay que dibujar la pantalla (Compose) |
+
+## Ejercicio C3 — Lo que la prueba no ve
+
+- **¿Suficiente?** No. TalkBack dice «Imagen del aviso» en todas; no se sabe qué muestra cada una.
+- **Mejor:** incluir el título: «Imagen del aviso Feria de proyectos».
+- **Cómo probarlo:** dibujar `TarjetaAviso` con un aviso de título conocido y buscar `onNodeWithContentDescription("Imagen del aviso Feria de proyectos")`.
